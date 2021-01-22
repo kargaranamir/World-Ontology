@@ -1,0 +1,9 @@
+beautifulsoup4==4.8.1   
+requests==2.11.1  
+requests-file==1.4.3   
+requests-toolbelt==0.7.0  
+numpy==1.14.5  
+simplejson==3.16.0  
+jsondb==0.1.2   
+jsonschema==2.6.0   
+pandas==0.25.1
