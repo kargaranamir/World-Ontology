@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://ce.sharif.edu/onto"
+         xmlns="http://ce.sharif.edu/onto#"
+         xmlns:cont="http://ce.sharif.edu/onto/continent#">
+
+<owl:Ontology rdf:about="http://ce.sharif.edu/onto"/>
+
+<owl:ObjectProperty rdf:about="#neighbourof">
+  <rdfs:domain rdf:resource="http://ce.sharif.edu/onto/country#Country"/>
+  <rdfs:range rdf:resource="http://ce.sharif.edu/onto/country#Country"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#country_has_region">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="http://ce.sharif.edu/onto/country#Country"/>
+  <rdfs:range rdf:resource="http://ce.sharif.edu/onto/region#Region"/>
+  <owl:inverseOf rdf:resource="#region_has_country"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasLanguage">
+  <rdfs:domain rdf:resource="http://ce.sharif.edu/onto/country#Country"/>
+  <rdfs:range rdf:resource="http://ce.sharif.edu/onto/language#Language"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#region_has_country">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+  <rdfs:domain rdf:resource="http://ce.sharif.edu/onto/region#Region"/>
+  <rdfs:range rdf:resource="http://ce.sharif.edu/onto/country#Country"/>
+  <owl:inverseOf rdf:resource="#country_has_region"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#region_has_continent">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="http://ce.sharif.edu/onto/region#Region"/>
+  <rdfs:range rdf:resource="http://ce.sharif.edu/onto/continent#Continent"/>
+  <owl:inverseOf rdf:resource="#continent_has_region"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#continent_has_region">
+  <rdfs:domain rdf:resource="http://ce.sharif.edu/onto/continent#Continent"/>
+  <rdfs:range rdf:resource="http://ce.sharif.edu/onto/region#Region"/>
+  <owl:inverseOf rdf:resource="#region_has_continent"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#tr_name">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Territory"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#tr_population">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Territory"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#tr_area">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Territory"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#tr_pupulation_prospect">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="http://ce.sharif.edu/onto/continent#Continent"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Territory">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="http://ce.sharif.edu/onto/country#Country">
+  <rdfs:subClassOf rdf:resource="#Territory"/>
+</owl:Class>
+
+<owl:Class rdf:about="http://ce.sharif.edu/onto/region#Region">
+  <rdfs:subClassOf rdf:resource="#Territory"/>
+</owl:Class>
+
+<owl:Class rdf:about="http://ce.sharif.edu/onto/continent#Continent">
+  <rdfs:subClassOf rdf:resource="#Territory"/>
+</owl:Class>
+
+<owl:Class rdf:about="http://ce.sharif.edu/onto/language#Language">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<cont:Continent rdf:about="http://ce.sharif.edu/onto/continent#Africa">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Africa</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1340598</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30311000</tr_area>
+  <tr_pupulation_prospect rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1850475700</tr_pupulation_prospect>
+</cont:Continent>
+
+<cont:Continent rdf:about="http://ce.sharif.edu/onto/continent#Americas">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Americas</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1022832</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42322000</tr_area>
+  <tr_pupulation_prospect rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1171589200</tr_pupulation_prospect>
+</cont:Continent>
+
+<cont:Continent rdf:about="http://ce.sharif.edu/onto/continent#Asia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Asia</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4641055</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31915000</tr_area>
+  <tr_pupulation_prospect rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5351916300</tr_pupulation_prospect>
+</cont:Continent>
+
+<cont:Continent rdf:about="http://ce.sharif.edu/onto/continent#Europe">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Europe</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">747636</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23049000</tr_area>
+  <tr_pupulation_prospect rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">700676200</tr_pupulation_prospect>
+</cont:Continent>
+
+<cont:Continent rdf:about="http://ce.sharif.edu/onto/continent#Oceania">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Oceania</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42678</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8564000</tr_area>
+  <tr_pupulation_prospect rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">49423700</tr_pupulation_prospect>
+</cont:Continent>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="http://ce.sharif.edu/onto/continent#Continent"/>
+    <rdf:Description rdf:about="http://ce.sharif.edu/onto/country#Country"/>
+    <rdf:Description rdf:about="http://ce.sharif.edu/onto/region#Region"/>
+    <rdf:Description rdf:about="http://ce.sharif.edu/onto/language#Language"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="http://ce.sharif.edu/onto/continent#Continent"/>
+    <rdf:Description rdf:about="http://ce.sharif.edu/onto/country#Country"/>
+    <rdf:Description rdf:about="http://ce.sharif.edu/onto/region#Region"/>
+    <rdf:Description rdf:about="http://ce.sharif.edu/onto/language#Language"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+
+</rdf:RDF>
