@@ -5,7 +5,9 @@
          xmlns:owl="http://www.w3.org/2002/07/owl#"
          xml:base="http://ce.sharif.edu/onto"
          xmlns="http://ce.sharif.edu/onto#"
-         xmlns:cont="http://ce.sharif.edu/onto/continent#">
+         xmlns:cont="http://ce.sharif.edu/onto/continent#"
+         xmlns:regi="http://ce.sharif.edu/onto/region#"
+         xmlns:coun="http://ce.sharif.edu/onto/country#">
 
 <owl:Ontology rdf:about="http://ce.sharif.edu/onto"/>
 
@@ -31,6 +33,20 @@
   <rdfs:domain rdf:resource="http://ce.sharif.edu/onto/region#Region"/>
   <rdfs:range rdf:resource="http://ce.sharif.edu/onto/country#Country"/>
   <owl:inverseOf rdf:resource="#country_has_region"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#region_has_subregion">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+  <rdfs:domain rdf:resource="http://ce.sharif.edu/onto/region#Region"/>
+  <rdfs:range rdf:resource="http://ce.sharif.edu/onto/region#Region"/>
+  <owl:inverseOf rdf:resource="#subregion_has_region"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#subregion_has_region">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+  <rdfs:domain rdf:resource="http://ce.sharif.edu/onto/region#Region"/>
+  <rdfs:range rdf:resource="http://ce.sharif.edu/onto/region#Region"/>
+  <owl:inverseOf rdf:resource="#region_has_subregion"/>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#region_has_continent">
@@ -92,52 +108,1410 @@
 
 <cont:Continent rdf:about="http://ce.sharif.edu/onto/continent#Africa">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <continent_has_region rdf:resource="http://ce.sharif.edu/onto/region#Northern_Africa"/>
+  <continent_has_region rdf:resource="http://ce.sharif.edu/onto/region#Sub_Saharan_Africa"/>
   <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Africa</tr_name>
   <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1340598</tr_population>
   <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30311000</tr_area>
   <tr_pupulation_prospect rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1850475700</tr_pupulation_prospect>
 </cont:Continent>
 
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Northern_Africa">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Algeria"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Egypt"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Libya"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Morocco"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Sudan"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Tunisia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Western_Sahara"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Northern Africa</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">246232</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7880000</tr_area>
+</regi:Region>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Sub_Saharan_Africa">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#nan"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sub-Saharan Africa</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1094366</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22431000</tr_area>
+</regi:Region>
+
 <cont:Continent rdf:about="http://ce.sharif.edu/onto/continent#Americas">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <continent_has_region rdf:resource="http://ce.sharif.edu/onto/region#Northern_America"/>
+  <continent_has_region rdf:resource="http://ce.sharif.edu/onto/region#Latin_America_and_the_Caribbean"/>
   <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Americas</tr_name>
   <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1022832</tr_population>
   <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42322000</tr_area>
   <tr_pupulation_prospect rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1171589200</tr_pupulation_prospect>
 </cont:Continent>
 
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Northern_America">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Bermuda"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Canada"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Greenland"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Saint_Pierre_and_Miquelon"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#United_States_of_America"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Northern America</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">368870</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21776000</tr_area>
+</regi:Region>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Latin_America_and_the_Caribbean">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#nan"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Latin America and the Caribbean</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">653962</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20546000</tr_area>
+</regi:Region>
+
 <cont:Continent rdf:about="http://ce.sharif.edu/onto/continent#Asia">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <continent_has_region rdf:resource="http://ce.sharif.edu/onto/region#Central_Asia"/>
+  <continent_has_region rdf:resource="http://ce.sharif.edu/onto/region#Eastern_Asia"/>
+  <continent_has_region rdf:resource="http://ce.sharif.edu/onto/region#South_eastern_Asia"/>
+  <continent_has_region rdf:resource="http://ce.sharif.edu/onto/region#Southern_Asia"/>
+  <continent_has_region rdf:resource="http://ce.sharif.edu/onto/region#Western_Asia"/>
   <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Asia</tr_name>
   <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4641055</tr_population>
   <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31915000</tr_area>
   <tr_pupulation_prospect rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5351916300</tr_pupulation_prospect>
 </cont:Continent>
 
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Central_Asia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Kazakhstan"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Kyrgyzstan"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Tajikistan"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Turkmenistan"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Uzbekistan"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Central Asia</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">74339</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4103000</tr_area>
+</regi:Region>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Eastern_Asia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#China"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Hong_Kong_SAR"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Macau"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#North_Korea"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Japan"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Mongolia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#South_Korea"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Eastern Asia</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1678090</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11799000</tr_area>
+</regi:Region>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#South_eastern_Asia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Brunei"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Cambodia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Indonesia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Laos"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Malaysia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Myanmar"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Philippines"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Singapore"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Thailand"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Timorleste"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Vietnam"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">South-eastern Asia</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">668620</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4495000</tr_area>
+</regi:Region>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Southern_Asia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Afghanistan"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Bangladesh"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Bhutan"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#India"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Iran"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Maldives"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Nepal"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Pakistan"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Sri_Lanka"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Southern Asia</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1940370</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6688000</tr_area>
+</regi:Region>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Western_Asia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Armenia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Azerbaijan"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Bahrain"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Cyprus"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Georgia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Iraq"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Israel"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Jordan"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Kuwait"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Lebanon"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Oman"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Qatar"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Saudi_Arabia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Palestine"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Syria"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Turkey"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#United_Arab_Emirates"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Yemen"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Western Asia</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">279637</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4831000</tr_area>
+</regi:Region>
+
 <cont:Continent rdf:about="http://ce.sharif.edu/onto/continent#Europe">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <continent_has_region rdf:resource="http://ce.sharif.edu/onto/region#Eastern_Europe"/>
+  <continent_has_region rdf:resource="http://ce.sharif.edu/onto/region#Northern_Europe"/>
+  <continent_has_region rdf:resource="http://ce.sharif.edu/onto/region#Southern_Europe"/>
+  <continent_has_region rdf:resource="http://ce.sharif.edu/onto/region#Western_Europe"/>
   <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Europe</tr_name>
   <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">747636</tr_population>
   <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23049000</tr_area>
   <tr_pupulation_prospect rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">700676200</tr_pupulation_prospect>
 </cont:Continent>
 
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Eastern_Europe">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Belarus"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Bulgaria"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Czechia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Hungary"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Poland"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Moldova"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Romania"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Russia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Slovakia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Ukraine"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Eastern Europe</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">293013</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18814000</tr_area>
+</regi:Region>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Northern_Europe">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Channel_Islands"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Denmark"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Estonia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Faroe_Islands"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Finland"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Iceland"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Ireland"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Isle_of_Man"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Latvia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Lithuania"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Norway"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Sweden"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#United_Kingdom"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Northern Europe</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">106261</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1810000</tr_area>
+</regi:Region>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Southern_Europe">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Albania"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Andorra"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Bosnia_and_Herzegovina"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Croatia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Gibraltar"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Greece"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Vatican_City"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Italy"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Malta"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Montenegro"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#North_Macedonia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Portugal"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#San_Marino"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Serbia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Slovenia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Spain"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Southern Europe</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">152215</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1317000</tr_area>
+</regi:Region>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Western_Europe">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Austria"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Belgium"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#France"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Germany"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Liechtenstein"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Luxembourg"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Monaco"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Netherlands"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Switzerland"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Western Europe</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">196146</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1108000</tr_area>
+</regi:Region>
+
 <cont:Continent rdf:about="http://ce.sharif.edu/onto/continent#Oceania">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <continent_has_region rdf:resource="http://ce.sharif.edu/onto/region#Australia_and_New_Zealand"/>
+  <continent_has_region rdf:resource="http://ce.sharif.edu/onto/region#Melanesia"/>
+  <continent_has_region rdf:resource="http://ce.sharif.edu/onto/region#Micronesia"/>
+  <continent_has_region rdf:resource="http://ce.sharif.edu/onto/region#Polynesia"/>
   <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Oceania</tr_name>
   <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42678</tr_population>
   <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8564000</tr_area>
   <tr_pupulation_prospect rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">49423700</tr_pupulation_prospect>
 </cont:Continent>
 
-<owl:AllDisjointClasses>
-  <owl:members rdf:parseType="Collection">
-    <rdf:Description rdf:about="http://ce.sharif.edu/onto/continent#Continent"/>
-    <rdf:Description rdf:about="http://ce.sharif.edu/onto/country#Country"/>
-    <rdf:Description rdf:about="http://ce.sharif.edu/onto/region#Region"/>
-    <rdf:Description rdf:about="http://ce.sharif.edu/onto/language#Language"/>
-  </owl:members>
-</owl:AllDisjointClasses>
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Australia_and_New_Zealand">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Australia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#New_Zealand"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Australia and New Zealand</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30322</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8012000</tr_area>
+</regi:Region>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Melanesia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Fiji"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#New_Caledonia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Papua_New_Guinea"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Solomon_Islands"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Vanuatu"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Melanesia</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11123</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">541000</tr_area>
+</regi:Region>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Micronesia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Guam"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Kiribati"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Marshall_Islands"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Micronesia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Nauru"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Northern_Mariana_Islands"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Palau"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Micronesia</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">549</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3000</tr_area>
+</regi:Region>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Polynesia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#American_Samoa"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Cook_Islands"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#French_Polynesia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Niue"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Samoa"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Tokelau"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Tonga"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Tuvalu"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Wallis_and_Futuna"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Polynesia</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">684</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8000</tr_area>
+</regi:Region>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Algeria">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Egypt">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Libya">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Morocco">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Sudan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Tunisia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Western_Sahara">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#nan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Eastern_Africa">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Burundi"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Comoros"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Djibouti"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Eritrea"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Ethiopia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Kenya"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Madagascar"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Malawi"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Mauritius"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Mayotte"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Mozambique"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Reunion"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Rwanda"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Seychelles"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Somalia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#South_Sudan"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Uganda"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Tanzania"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Zambia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Zimbabwe"/>
+  <subregion_has_region rdf:resource="http://ce.sharif.edu/onto/region#Sub_Saharan_Africa"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Eastern Africa</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">445406</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7005000</tr_area>
+</regi:Region>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Burundi">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Comoros">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Djibouti">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Eritrea">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Ethiopia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Kenya">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Madagascar">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Malawi">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Mauritius">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Mayotte">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Mozambique">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Reunion">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Rwanda">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Seychelles">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Somalia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#South_Sudan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Uganda">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Tanzania">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Zambia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Zimbabwe">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Middle_Africa">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Angola"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Cameroon"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Central_African_Republic"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Chad"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Congo"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Dem._Rep._of_The_Congo"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Equatorial_Guinea"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Gabon"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Sao_Tome_and_Principe"/>
+  <subregion_has_region rdf:resource="http://ce.sharif.edu/onto/region#Sub_Saharan_Africa"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Middle Africa</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">179595</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6613000</tr_area>
+</regi:Region>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Angola">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Cameroon">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Central_African_Republic">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Chad">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Congo">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Dem._Rep._of_The_Congo">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Equatorial_Guinea">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Gabon">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Sao_Tome_and_Principe">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Southern_Africa">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Botswana"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Eswatini"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Lesotho"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Namibia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#South_Africa"/>
+  <subregion_has_region rdf:resource="http://ce.sharif.edu/onto/region#Sub_Saharan_Africa"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Southern Africa</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67504</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2675000</tr_area>
+</regi:Region>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Botswana">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Eswatini">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Lesotho">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Namibia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#South_Africa">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Western_Africa">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Benin"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Burkina_Faso"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Cape_Vede"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#"Cote_DIvoire""/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Gambia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Ghana"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Guinea"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Guineabissau"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Liberia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Mali"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Mauritania"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Niger"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Nigeria"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Saint_Helena"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Senegal"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Sierra_Leone"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Togo"/>
+  <subregion_has_region rdf:resource="http://ce.sharif.edu/onto/region#Sub_Saharan_Africa"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Western Africa</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">401861</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6138000</tr_area>
+</regi:Region>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Benin">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Burkina_Faso">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Cape_Vede">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#"Cote_DIvoire"">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Gambia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Ghana">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Guinea">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Guineabissau">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Liberia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Mali">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Mauritania">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Niger">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Nigeria">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Saint_Helena">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Senegal">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Sierra_Leone">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Togo">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Bermuda">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Canada">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Greenland">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Saint_Pierre_and_Miquelon">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#United_States_of_America">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Caribbean">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Anguilla"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Antigua_and_Barbuda"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Aruba"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Bahamas"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Barbados"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Bonaire"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#St._Eustatius_and_Saba"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#British_Virgin_Islands"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Cayman_Islands"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Cuba"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Curacao"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Dominica"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Dominican_Republic"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Grenada"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Guadeloupe"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Haiti"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Jamaica"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Martinique"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Montserrat"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Puerto_Rico"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Saint_Kitts_and_Nevis"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Saint_Lucia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Saint_Vincent_and_The_Grenadines"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Sint_Maarten"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Trinidad_and_Tobago"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Turks_and_Caicos_Islands"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#United_States_Virgin_Islands"/>
+  <subregion_has_region rdf:resource="http://ce.sharif.edu/onto/region#Latin_America_and_Caribbean"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Caribbean</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">43532</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">234000</tr_area>
+</regi:Region>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Latin_America_and_Caribbean">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</regi:Region>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Anguilla">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Antigua_and_Barbuda">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Aruba">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Bahamas">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Barbados">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Bonaire">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#St._Eustatius_and_Saba">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#British_Virgin_Islands">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Cayman_Islands">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Cuba">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Curacao">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Dominica">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Dominican_Republic">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Grenada">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Guadeloupe">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Haiti">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Jamaica">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Martinique">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Montserrat">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Puerto_Rico">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Saint_Kitts_and_Nevis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Saint_Lucia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Saint_Vincent_and_The_Grenadines">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Sint_Maarten">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Trinidad_and_Tobago">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Turks_and_Caicos_Islands">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#United_States_Virgin_Islands">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Central_America">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Belize"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Costa_Rica"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#El_Salvador"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Guatemala"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Honduras"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Mexico"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Nicaragua"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Panama"/>
+  <subregion_has_region rdf:resource="http://ce.sharif.edu/onto/region#Latin_America_and_Caribbean"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Central America</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">179670</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2480000</tr_area>
+</regi:Region>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Belize">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Costa_Rica">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#El_Salvador">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Guatemala">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Honduras">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Mexico">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Nicaragua">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Panama">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<regi:Region rdf:about="http://ce.sharif.edu/onto/region#South_America">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Argentina"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Bolivia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Brazil"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Chile"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Colombia"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Ecuador"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Falkland_Islands"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#French_Guiana"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Guyana"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Paraguay"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Peru"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Suriname"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Uruguay"/>
+  <region_has_country rdf:resource="http://ce.sharif.edu/onto/country#Venezuela"/>
+  <subregion_has_region rdf:resource="http://ce.sharif.edu/onto/region#Latin_America_and_Caribbean"/>
+  <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">South America</tr_name>
+  <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">430760</tr_population>
+  <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17832000</tr_area>
+</regi:Region>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Argentina">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Bolivia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Brazil">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Chile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Colombia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Ecuador">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Falkland_Islands">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#French_Guiana">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Guyana">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Paraguay">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Peru">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Suriname">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Uruguay">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Venezuela">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Kazakhstan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Kyrgyzstan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Tajikistan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Turkmenistan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Uzbekistan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#China">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Hong_Kong_SAR">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Macau">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#North_Korea">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Japan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Mongolia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#South_Korea">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Brunei">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Cambodia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Indonesia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Laos">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Malaysia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Myanmar">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Philippines">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Singapore">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Thailand">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Timorleste">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Vietnam">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Afghanistan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Bangladesh">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Bhutan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#India">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Iran">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Maldives">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Nepal">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Pakistan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Sri_Lanka">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Armenia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Azerbaijan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Bahrain">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Cyprus">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Georgia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Iraq">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Israel">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Jordan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Kuwait">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Lebanon">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Oman">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Qatar">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Saudi_Arabia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Palestine">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Syria">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Turkey">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#United_Arab_Emirates">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Yemen">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Belarus">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Bulgaria">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Czechia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Hungary">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Poland">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Moldova">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Romania">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Russia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Slovakia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Ukraine">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Channel_Islands">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Denmark">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Estonia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Faroe_Islands">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Finland">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Iceland">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Ireland">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Isle_of_Man">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Latvia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Lithuania">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Norway">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Sweden">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#United_Kingdom">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Albania">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Andorra">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Bosnia_and_Herzegovina">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Croatia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Gibraltar">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Greece">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Vatican_City">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Italy">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Malta">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Montenegro">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#North_Macedonia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Portugal">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#San_Marino">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Serbia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Slovenia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Spain">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Austria">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Belgium">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#France">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Germany">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Liechtenstein">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Luxembourg">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Monaco">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Netherlands">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Switzerland">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Australia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#New_Zealand">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Fiji">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#New_Caledonia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Papua_New_Guinea">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Solomon_Islands">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Vanuatu">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Guam">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Kiribati">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Marshall_Islands">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Micronesia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Nauru">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Northern_Mariana_Islands">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Palau">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#American_Samoa">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Cook_Islands">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#French_Polynesia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Niue">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Samoa">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Tokelau">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Tonga">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Tuvalu">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
+
+<coun:Country rdf:about="http://ce.sharif.edu/onto/country#Wallis_and_Futuna">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</coun:Country>
 
 <owl:AllDisjointClasses>
   <owl:members rdf:parseType="Collection">
