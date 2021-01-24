@@ -4013,14 +4013,10 @@
   <r_hascountry rdf:resource="http://ce.sharif.edu/onto/country#Trinidad_and_Tobago"/>
   <r_hascountry rdf:resource="http://ce.sharif.edu/onto/country#Turks_and_Caicos_Islands"/>
   <r_hascountry rdf:resource="http://ce.sharif.edu/onto/country#United_States_Virgin_Islands"/>
-  <subregion_has_region rdf:resource="http://ce.sharif.edu/onto/region#Latin_America_and_Caribbean"/>
+  <subregion_has_region rdf:resource="http://ce.sharif.edu/onto/region#Latin_America_and_the_Caribbean"/>
   <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Caribbean</tr_name>
   <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">43532</tr_population>
   <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">234000</tr_area>
-</regi:Region>
-
-<regi:Region rdf:about="http://ce.sharif.edu/onto/region#Latin_America_and_Caribbean">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
 </regi:Region>
 
 <coun:Country rdf:about="http://ce.sharif.edu/onto/country#Anguilla">
@@ -5086,7 +5082,7 @@
   <r_hascountry rdf:resource="http://ce.sharif.edu/onto/country#Mexico"/>
   <r_hascountry rdf:resource="http://ce.sharif.edu/onto/country#Nicaragua"/>
   <r_hascountry rdf:resource="http://ce.sharif.edu/onto/country#Panama"/>
-  <subregion_has_region rdf:resource="http://ce.sharif.edu/onto/region#Latin_America_and_Caribbean"/>
+  <subregion_has_region rdf:resource="http://ce.sharif.edu/onto/region#Latin_America_and_the_Caribbean"/>
   <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Central America</tr_name>
   <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">179670</tr_population>
   <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2480000</tr_area>
@@ -5542,7 +5538,7 @@
   <r_hascountry rdf:resource="http://ce.sharif.edu/onto/country#Suriname"/>
   <r_hascountry rdf:resource="http://ce.sharif.edu/onto/country#Uruguay"/>
   <r_hascountry rdf:resource="http://ce.sharif.edu/onto/country#Venezuela"/>
-  <subregion_has_region rdf:resource="http://ce.sharif.edu/onto/region#Latin_America_and_Caribbean"/>
+  <subregion_has_region rdf:resource="http://ce.sharif.edu/onto/region#Latin_America_and_the_Caribbean"/>
   <tr_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">South America</tr_name>
   <tr_population rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">430760</tr_population>
   <tr_area rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17832000</tr_area>
