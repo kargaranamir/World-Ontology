@@ -1,0 +1,7 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+
+SELECT ?country ?sex_ratio
+WHERE {
+    ?country ex:c_sex_ratio ?sex_ratio .
+	FILTER(?sex_ratio < 100) # note that it means females are more than mans
+}

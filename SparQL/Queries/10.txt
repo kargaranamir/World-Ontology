@@ -1,0 +1,10 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+
+SELECT ?country (str(?number) as ?num_seat) (str(?population) as ?popuation) (str(?sex_ratio) as ?sex_ratio)
+WHERE {
+	?country ex:seats_held_by_women_in_national_parliaments ?number .
+	?country ex:tr_population ?population .
+	?country ex:c_sex_ratio ?sex_ratio .
+}
+ORDER BY DESC(?number)
+LIMIT 20
