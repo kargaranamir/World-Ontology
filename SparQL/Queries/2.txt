@@ -1,0 +1,16 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+# Execuatable on Protege 4.3, 5.5
+
+SELECT ?region (?country as ?most_populated_country) 
+WHERE {
+	{SELECT ?region (MAX(?population) as ?maxpop)
+		WHERE{ 
+			{?country ex:tr_population ?population .}
+			{?country ex:country_has_region ?region .}
+			}
+		GROUP BY ?region
+	}
+		
+	{?country ex:country_has_region ?region .}
+	{?country ex:tr_population ?maxpop .}
+}

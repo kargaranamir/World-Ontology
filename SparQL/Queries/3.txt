@@ -1,0 +1,17 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+# Execuatable on Protege 4.3, 5.5
+
+SELECT ?region 
+WHERE {
+	{SELECT ?region (MAX(?population) as ?maxpop)
+		WHERE{ 
+			{?country ex:tr_population ?population .}
+			{?country ex:country_has_region ?region .}
+			}
+		GROUP BY ?region
+	}
+		
+	{?max_population_country ex:country_has_region ?region .}
+	{?max_population_country ex:tr_population ?maxpop .}
+	FILTER(?maxpop < 30000) #note that it means max population is lower than 30 000 000 people
+}

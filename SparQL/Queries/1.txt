@@ -1,0 +1,9 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+# Execuatable on Protege 4.3
+
+SELECT (?country as ?country_name) (str(?city) as ?capital_name)
+WHERE {
+	{?country ex:c_capital ?city . FILTER(CONTAINS(LCASE(str(?country)), LCASE(str(?city)))) .} 
+	UNION
+	{?country ex:c_capital ?city . FILTER(CONTAINS(LCASE(str(?city)), LCASE(str(?country)))) .}
+}
