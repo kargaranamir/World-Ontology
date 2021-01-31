@@ -1,0 +1,14 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+
+SELECT ?country1 (str(?count_neighbours) as ?count_neighbours)
+WHERE {
+	{
+	SELECT ?country1 (COUNT(?country2) as ?count_neighbours)
+			WHERE {
+			?country1 ex:neighbour_of ?country2 .
+			}
+			GROUP BY ?country1
+	}
+	
+	Filter(?count_neighbours < 3)
+}

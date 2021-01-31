@@ -1,0 +1,10 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+PREFIX lang: <http://ce.sharif.edu/onto/language#>
+
+SELECT DISTINCT ?country1
+WHERE {
+        ?country1 ex:has_language ?language1 .
+        ?country1 ex:neighbour_of ?country2 .
+        ?country2 ex:has_language ?language2 .
+		FILTER(?language1 != lang:English && ?language2 = lang:English)
+}
