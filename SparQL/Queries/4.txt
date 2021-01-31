@@ -1,0 +1,12 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+
+SELECT ?language (str(?num) as ?number_of_repeat) 
+WHERE{
+	SELECT ?language (COUNT(?language) as ?num)
+	WHERE {
+    ?country ex:has_language ?language
+	}
+	GROUP BY ?language
+	ORDER BY DESC(?num)
+	LIMIT 3
+}

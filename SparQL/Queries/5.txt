@@ -1,0 +1,8 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+
+SELECT ?country1 ?language ?country2
+WHERE {
+	{?country1 ex:neighbour_of ?country2 .}
+	{?country1 ex:has_language ?language .}
+	{?country2 ex:has_language ?language .}
+}
