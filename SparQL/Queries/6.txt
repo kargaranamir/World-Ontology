@@ -1,0 +1,26 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+
+SELECT ?country1 (str(?count_neighbours) as ?max_num_neighbours)
+WHERE {
+	{
+		SELECT  (MAX(?count_neighbours) as ?max_num)
+		WHERE {
+			SELECT ?country1 (COUNT(?country2) as ?count_neighbours)
+			WHERE {
+			?country1 ex:neighbour_of ?country2 .
+			}
+			GROUP BY ?country1		
+		}
+	}
+	
+	{
+	SELECT ?country1 (COUNT(?country2) as ?count_neighbours)
+			WHERE {
+			?country1 ex:neighbour_of ?country2 .
+			}
+			GROUP BY ?country1
+	
+	}
+	
+	Filter(sameTerm(?count_neighbours, ?max_num))
+}
