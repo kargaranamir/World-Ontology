@@ -1,0 +1,9 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+
+SELECT ?country1 ?region1 ?region2 ?country2
+WHERE {
+    ?country1 ex:neighbour_of ?country2 .
+    ?country1 ex:country_has_region ?region1 .
+    ?country2 ex:country_has_region ?region2 .
+    FILTER (?region1 != ?region2)
+}
