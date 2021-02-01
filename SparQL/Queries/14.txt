@@ -1,0 +1,9 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+
+SELECT DISTINCT ?country 
+WHERE{
+  ?country  ex:c_gdp ?gdp.
+  ?iran ex:c_gdp ?iran_gdp.
+  FILTER regex(str(?iran), "Iran", "i").
+  FILTER (?gdp < ?iran_gdp)
+}

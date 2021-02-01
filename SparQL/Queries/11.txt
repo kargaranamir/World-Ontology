@@ -1,0 +1,14 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+
+SELECT ?region ?count
+WHERE{
+  {
+  SELECT  DISTINCT ?region (count(?country) as ?count)
+  WHERE{
+    ?region ex:region_has_country ?country.
+    ?country ex:c_sex_ratio ?ratio.
+    FILTER(?ratio < 100).
+  }GROUP BY ?region
+  }
+  FILTER (?count < 10)
+}

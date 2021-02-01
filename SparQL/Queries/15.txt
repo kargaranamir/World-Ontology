@@ -1,0 +1,22 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+
+SELECT ?country (str(?domain) as ?domain) (str(?iun) as ?max_num_iu)
+WHERE {
+	{
+		SELECT  (MAX(?iun) as ?max_num)
+			WHERE {
+				?country ex:individuals_using_the_internet ?iun .
+				?country ex:c_domain ?domain .
+			}
+	}
+	
+	{
+		SELECT ?country ?domain ?iun
+		WHERE {
+			?country ex:individuals_using_the_internet ?iun.
+			?country ex:c_domain ?domain
+		}
+	}
+	
+	Filter(sameTerm(?iun, ?max_num))
+}

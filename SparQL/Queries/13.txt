@@ -1,0 +1,8 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+
+SELECT DISTINCT ?country
+WHERE{
+  ?country ex:c_capital_population ?cap_pop.
+  ?country2 ex:tr_population ?country_pop.
+  FILTER(?cap_pop > ?country_pop)
+}
