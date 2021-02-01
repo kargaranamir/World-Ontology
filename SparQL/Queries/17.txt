@@ -1,0 +1,25 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+
+SELECT ?region (?total_physician_region / ?total_population_region as ?physician_ratio_region)
+WHERE {
+	{
+        SELECT ?region (SUM(?physician_ratio * ?population) as ?total_physician_region)
+        WHERE {
+            ?region ex:region_has_country ?country .
+            ?country ex:health_physicians ?physician_ratio . # per population
+			?country ex:tr_population ?population . 
+        }
+        GROUP BY (?region)
+      
+    }
+	
+	{
+        SELECT ?region (SUM(?population) as ?total_population_region)
+        WHERE {
+            ?region ex:region_has_country ?country .
+			?country ex:tr_population ?population .
+        }
+        GROUP BY (?region)
+	}
+}
+ORDER BY DESC(?physician_ratio_region)
