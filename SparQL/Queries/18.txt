@@ -1,0 +1,25 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+
+SELECT ?country ?weighted_life
+WHERE {
+	{
+        SELECT ?country ?physician_ratio
+        WHERE {
+            ?country ex:health_physicians ?physician_ratio . # per population
+        }
+		ORDER BY DESC(?physician_ratio)
+		LIMIT 50 
+    }
+	
+	{
+        SELECT ?country ( ( ?life_exp_f * 100 + ?life_exp_m * ?sex_ratio) / (100 + ?sex_ratio) as ?weighted_life)
+        WHERE {
+      
+			?country ex:life_expectancy_at_birth_f ?life_exp_f .
+			?country ex:life_expectancy_at_birth_m ?life_exp_m .
+			?country ex:c_sex_ratio ?sex_ratio
+        }
+	}
+}
+ORDER BY DESC(?weighted_life)
+LIMIT 5
