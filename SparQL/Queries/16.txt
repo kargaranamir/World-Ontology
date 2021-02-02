@@ -1,0 +1,24 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+SELECT ?continent (str(?continent_forested_ratio) as ?cont_forested_ratio)
+WHERE{
+
+  {
+  SELECT ?continent (SUM(?region_forest) as ?continent_forest_area)
+  WHERE{
+    {
+    SELECT ?region (SUM(?forest_area) as ?region_forest)
+    WHERE {
+      ?region ex:region_has_country ?country.
+      ?country ex:forested_area ?forest_ratio.
+      ?country ex:tr_area ?country_area.
+      BIND(?country_area*?forest_ratio/100 as ?forest_area).
+    }GROUP BY(?region)
+    }
+    ?continent ex:continent_has_region ?region.
+  }GROUP BY(?continent)
+  }
+  ?continent ex:tr_area ?cont_area
+  BIND(?continent_forest_area/?cont_area as ?continent_forested_ratio)
+  
+}ORDER BY DESC(?continent_forested_ratio)
+LIMIT 1

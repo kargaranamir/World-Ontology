@@ -1,0 +1,28 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+SELECT DISTINCT ?fm_country1
+WHERE{
+
+  {
+    SELECT ?fm_country1
+    WHERE {
+       ?fm_country1 ex:seats_held_by_women_in_national_parliaments ?number1 .
+    }
+    ORDER BY DESC(?number1)
+    LIMIT 20
+  }
+  
+	MINUS{
+		{
+			SELECT ?fm_country2 
+			WHERE {
+				?fm_country2 ex:seats_held_by_women_in_national_parliaments ?number2 .
+			}
+			ORDER BY DESC(?number2)
+			LIMIT 20
+		}
+		
+		
+		?fm_country1 ex:neighbour_of ?fm_country2
+		
+    }
+}

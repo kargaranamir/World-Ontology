@@ -1,0 +1,25 @@
+PREFIX ex: <http://ce.sharif.edu/onto#>
+SELECT DISTINCT ?doomed_country
+WHERE{
+
+  {
+    SELECT ?polluted_neighbour ?co2
+    WHERE{
+      ?polluted_neighbour ex:tr_population ?pop.
+      ?polluted_neighbour ex:co2_emission_estimates_c ?co2_per_capita.
+      BIND(?co2_per_capita*?pop as ?co2).
+  
+    }ORDER BY DESC(?co2) LIMIT 5
+  }
+  {
+    SELECT ?doomed_country ?co2_2
+    WHERE{
+      ?doomed_country ex:tr_population ?pop2.
+      ?doomed_country ex:co2_emission_estimates_c ?co2_per_capita2.
+      BIND(?co2_per_capita2*?pop2 as ?co2_2).
+  
+    }ORDER BY DESC(?co2_2) OFFSET 5
+  }
+  FILTER EXISTS{ ?doomed_country ex:neighbour_of ?polluted_neighbour}
+  
+}
