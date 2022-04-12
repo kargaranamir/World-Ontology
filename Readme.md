@@ -1,6 +1,9 @@
 # World-Ontology
 A queryable ontology containing information about continents, regions, and countries in the world.
 
+![ontology](./Images/ontology.svg)
+
+
 ## Data collection
 - http://data.un.org/en/index.html 
 - https://www.countries-ofthe-world.com
